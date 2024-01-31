@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  backend-service:
+    container_name: backend-service
+    build:
+      context: ./backend-service
+      dockerfile: Dockerfile
+    restart: 'no'
+    networks:
+      - app-net
+    ports:
+      - '5000:5000'
+  vue-front:
+    container_name: vue-front
+    build:
+      context: ./frontend-service
+      dockerfile: Dockerfile
+    restart: 'no'
+    networks:
+      - app-net
+    ports:
+      - '8080:8080' # host:container
+    depends_on:
+      - backend-service
+networks:
+  app-net:
+    driver: bridge

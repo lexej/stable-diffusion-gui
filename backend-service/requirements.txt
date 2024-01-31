@@ -1,0 +1,6 @@
+flask~=3.0.1
+marshmallow~=3.20.2
+torch~=2.2.0
+transformers~=4.37.2
+diffusers~=0.25.1
+accelerate~=0.26.1
