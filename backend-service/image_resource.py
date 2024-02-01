@@ -16,6 +16,7 @@ from diffusers import StableDiffusionPipeline
 model_id = "runwayml/stable-diffusion-v1-5"
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "mps" if torch.backends.mps.is_available() else "cpu"
 
 
 if device != "cpu":
